@@ -1,3 +1,9 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
 body {
     font-family: Arial, Helvetica, sans-serif;
 }
@@ -14,32 +20,36 @@ body {
     height: 100%;
     z-index: 1000;
     display: flex;
-    animation: topLoader 5s ease forwards;
-    animation-delay: 5s;
-    /* background-color: #fead0d; */
+    /* animation: topLoader 5s ease forwards;
+    animation-delay: 5s; */
 }
 
-.preloader__scene::before{
+.preloader__scene::before {
     content: '';
-    background-image: url('./anime-gif.gif');
+    background-color: #ffffff;
+    background-image: url('./present.png');
     background-repeat: no-repeat;
-    background-size: cover;
-    background-position: bottom center;
     width: 100%;
     height: 100%;
     position: absolute;
-    animation: topLoader 3.5s ease forwards;
+    animation: topLoader 3.5s ease;
     animation-delay: 3.5s;
     z-index: -1;
 }
 
 @keyframes topLoader {
-    from {
-        transform: scale(1);
+    0% {
+        transform: translateX(0) scale(1) rotateY(0);
     }
 
-    to {
-        transform: scale(1.5);
+    50% {
+        transform: translateX(0) scale(.5) rotateY(10deg);
+        border-top-left-radius: 50%;
+        border-bottom-right-radius: 50%;
+    }
+
+    100% {
+        transform: scale(.5) translateY(120%);
         opacity: 0;
     }
 }
@@ -140,9 +150,7 @@ body {
 } */
 
 
-body {
-    background: #000;
-}
+body {}
 
 #load {
     position: absolute;
@@ -174,7 +182,7 @@ body {
     -o-transform: rotate(180deg);
     -moz-transform: rotate(180deg);
     -webkit-transform: rotate(180deg);
-    color: #ffffff;
+    color: #6d645a;
 }
 
 #load div:nth-child(2) {
@@ -219,6 +227,13 @@ body {
     -webkit-animation-delay: 1.2s;
 }
 
+#load div:nth-child(8) {
+    animation-delay: 1.6s;
+    -o-animation-delay: 1.6s;
+    -moz-animation-delay: 1.6s;
+    -webkit-animation-delay: 1.6s;
+}
+
 @keyframes move {
     0% {
         left: 0;
@@ -260,14 +275,14 @@ body {
     }
 
     35% {
-        left: 41%;
+        left: 1%;
         -moz-transform: rotate(0deg);
         transform: rotate(0deg);
         opacity: 1;
     }
 
     65% {
-        left: 59%;
+        left: 19%;
         -moz-transform: rotate(0deg);
         transform: rotate(0deg);
         opacity: 1;
@@ -334,5 +349,31 @@ body {
         -o-transform: rotate(-180deg);
         transform: rotate(-180deg);
         opacity: 0;
+    }
+}
+
+.heart {
+    fill: red;
+    position: relative;
+    top: 5px;
+    width: 50px;
+    animation: pulse 1s ease forwards;
+    animation-delay: 1.9s;
+    -o-animation-delay: 1.9s;
+    -moz-animation-delay: 1.9s;
+    -webkit-animation-delay: 1.9s;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.5);
+    }
+
+    100% {
+        transform: scale(1);
     }
 }
